@@ -48,21 +48,17 @@
       <div class="hero-card">
         <h3>Encontre na AMM</h3>
         <div class="hero-list">
+          <span>Drywall</span>
+          <span>Tijolo baiano</span>
+          <span>Tijolinho comum</span>
           <span>Cimento 25 kg</span>
           <span>Areia 20 kg</span>
           <span>Argamassas</span>
           <span>Gesso</span>
-          <span>Drywall</span>
           <span>Rejuntes</span>
-          <span>Reparos</span>
           <span>Chuveiros</span>
-          <span>Vassouras</span>
-          <span>Assentos</span>
           <span>Lâmpadas</span>
-          <span>Conduítes</span>
-          <span>Tintas</span>
           <span>Tubos e conexões</span>
-          <span>Pregos e parafusos</span>
           <span>Ferramentas</span>
         </div>
       </div>
@@ -91,7 +87,7 @@
         <article class="category-card">
           <div class="category-icon">🧱</div>
           <h3>Construção</h3>
-          <p>Cimento, areia ensacada, argamassas, gesso, drywall, rejuntes e materiais básicos.</p>
+          <p>Drywall, tijolo baiano, tijolinho comum, cimento, areia, argamassas e gesso.</p>
         </article>
 
         <article class="category-card">
@@ -117,45 +113,31 @@
     <section class="calculator-section" id="calculadora">
       <div class="section-title">
         <p class="eyebrow">Calculadora de materiais</p>
-        <h2>Calcule por tipo de serviço</h2>
+        <h2>Calcule drywall e tijolos</h2>
         <p>
-          Informe as medidas da área e escolha o serviço. A calculadora estima a quantidade de material com margem de perda para ajudar no orçamento inicial.
+          Informe as medidas da parede e escolha o material. A calculadora mostra uma estimativa simples com margem de perda para ajudar no orçamento inicial.
         </p>
       </div>
 
       <div class="calculator-layout calculator-layout-new">
         <div class="calculator-card">
-          <label for="tipo-servico">O que você vai fazer?</label>
-          <select id="tipo-servico">
-            <option value="contrapiso">Contrapiso com cimento e areia</option>
-            <option value="areia">Camada de areia ensacada</option>
-            <option value="argamassa">Assentamento com argamassa</option>
-            <option value="drywall">Parede ou forro de drywall</option>
+          <label for="material-calculo">Material</label>
+          <select id="material-calculo">
+            <option value="drywall">Drywall</option>
+            <option value="baiano">Tijolo baiano 11,5 x 14 x 24 cm</option>
+            <option value="comum">Tijolinho comum 9 x 18 x 4 cm</option>
           </select>
 
           <div class="measure-grid">
             <div>
-              <label for="comprimento">Comprimento em metros</label>
-              <input type="number" id="comprimento" placeholder="Exemplo: 4" min="0" step="0.01" />
+              <label for="largura-parede">Largura da parede em metros</label>
+              <input type="number" id="largura-parede" placeholder="Exemplo: 3" min="0" step="0.01" />
             </div>
 
             <div>
-              <label for="largura">Largura em metros</label>
-              <input type="number" id="largura" placeholder="Exemplo: 3" min="0" step="0.01" />
+              <label for="altura-parede">Altura da parede em metros</label>
+              <input type="number" id="altura-parede" placeholder="Exemplo: 2,70" min="0" step="0.01" />
             </div>
-          </div>
-
-          <div id="espessura-area">
-            <label for="espessura">Espessura em centímetros</label>
-            <input type="number" id="espessura" placeholder="Exemplo: 3" min="0" step="0.1" />
-          </div>
-
-          <div id="argamassa-area" class="field-hidden">
-            <label for="tipo-argamassa">Tipo de aplicação da argamassa</label>
-            <select id="tipo-argamassa">
-              <option value="simples">Camada simples, peças menores</option>
-              <option value="dupla">Camada dupla, peças maiores</option>
-            </select>
           </div>
 
           <label for="perda">Margem de perda</label>
@@ -165,7 +147,7 @@
             <option value="1.15">15% - muitos recortes/perdas</option>
           </select>
 
-          <button class="btn btn-calculator" id="calcular" type="button">Calcular material</button>
+          <button class="btn btn-calculator" id="calcular" type="button">Calcular quantidade</button>
         </div>
 
         <div class="result-card result-card-new">
