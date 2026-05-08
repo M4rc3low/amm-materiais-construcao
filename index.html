@@ -117,38 +117,61 @@
     <section class="calculator-section" id="calculadora">
       <div class="section-title">
         <p class="eyebrow">Calculadora de materiais</p>
-        <h2>Estime a quantidade antes de comprar</h2>
+        <h2>Calcule por tipo de serviço</h2>
         <p>
-          Escolha o material, informe a medida aproximada e veja uma sugestão inicial de quantidade. O cálculo é uma estimativa e pode mudar conforme o tipo de serviço.
+          Informe as medidas da área e escolha o serviço. A calculadora estima a quantidade de material com margem de perda para ajudar no orçamento inicial.
         </p>
       </div>
 
-      <div class="calculator-layout">
+      <div class="calculator-layout calculator-layout-new">
         <div class="calculator-card">
-          <label for="material">Material</label>
-          <select id="material">
-            <option value="">Selecione uma opção</option>
-            <option value="cimento">Cimento 25 kg</option>
-            <option value="areia">Areia ensacada 20 kg</option>
-            <option value="argamassa">Argamassa</option>
-            <option value="drywall">Drywall</option>
+          <label for="tipo-servico">O que você vai fazer?</label>
+          <select id="tipo-servico">
+            <option value="contrapiso">Contrapiso com cimento e areia</option>
+            <option value="areia">Camada de areia ensacada</option>
+            <option value="argamassa">Assentamento com argamassa</option>
+            <option value="drywall">Parede ou forro de drywall</option>
           </select>
 
-          <label for="area">Área aproximada em m²</label>
-          <input type="number" id="area" placeholder="Exemplo: 12" min="0" step="0.1" />
+          <div class="measure-grid">
+            <div>
+              <label for="comprimento">Comprimento em metros</label>
+              <input type="number" id="comprimento" placeholder="Exemplo: 4" min="0" step="0.01" />
+            </div>
 
-          <div id="espessura-group" class="field-hidden">
-            <label for="espessura">Espessura aproximada em cm</label>
+            <div>
+              <label for="largura">Largura em metros</label>
+              <input type="number" id="largura" placeholder="Exemplo: 3" min="0" step="0.01" />
+            </div>
+          </div>
+
+          <div id="espessura-area">
+            <label for="espessura">Espessura em centímetros</label>
             <input type="number" id="espessura" placeholder="Exemplo: 3" min="0" step="0.1" />
           </div>
 
-          <button class="btn btn-calculator" id="calcular" type="button">Calcular quantidade</button>
+          <div id="argamassa-area" class="field-hidden">
+            <label for="tipo-argamassa">Tipo de aplicação da argamassa</label>
+            <select id="tipo-argamassa">
+              <option value="simples">Camada simples, peças menores</option>
+              <option value="dupla">Camada dupla, peças maiores</option>
+            </select>
+          </div>
+
+          <label for="perda">Margem de perda</label>
+          <select id="perda">
+            <option value="1.05">5% - pouca perda</option>
+            <option value="1.10" selected>10% - recomendado</option>
+            <option value="1.15">15% - muitos recortes/perdas</option>
+          </select>
+
+          <button class="btn btn-calculator" id="calcular" type="button">Calcular material</button>
         </div>
 
-        <div class="result-card">
-          <h3>Resultado aproximado</h3>
-          <div id="resultado-calculo" class="resultado-calculo">
-            Selecione o material, informe a medida e clique em calcular.
+        <div class="result-card result-card-new">
+          <h3>Resumo do cálculo</h3>
+          <div id="resultado-calculo" class="resultado-calculo resultado-detalhado">
+            Informe as medidas e clique em calcular para ver a estimativa.
           </div>
         </div>
       </div>
