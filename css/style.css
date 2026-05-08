@@ -529,8 +529,63 @@ section {
   margin-bottom: 20px;
 }
 
-.route-buttons {
+.route-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.route-icon {
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: 18px;
+  padding: 22px;
+  min-height: 170px;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: 0.2s;
+  box-shadow: 0 12px 24px rgba(16, 24, 61, 0.08);
+}
+
+.route-icon:hover {
+  transform: translateY(-4px);
+  border-color: var(--azul-principal);
+  box-shadow: 0 18px 32px rgba(16, 24, 61, 0.14);
+}
+
+.route-symbol {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--branco);
+}
+
+.route-google .route-symbol {
+  background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
+}
+
+.route-waze .route-symbol {
+  background: #33ccff;
+}
+
+.route-icon strong {
+  color: var(--azul-escuro);
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.route-icon small {
+  color: var(--cinza-texto);
+  font-weight: 700;
 }
 
 .whatsapp-section {
@@ -643,7 +698,8 @@ footer {
   .hero-list,
   .categories,
   .hours-grid,
-  .contact-grid {
+  .contact-grid,
+  .route-icons {
     grid-template-columns: 1fr;
   }
 
