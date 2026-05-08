@@ -3,434 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AMM Materiais de Construção</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .top-bar {
-      background: #1f2933;
-      color: #fff;
-      padding: 8px 5%;
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    header {
-      background: #fff;
-      padding: 18px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-box {
-      width: 48px;
-      height: 48px;
-      background: #f97316;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      border-radius: 10px;
-      font-size: 20px;
-    }
-
-    .logo h1 {
-      font-size: 22px;
-      color: #1f2933;
-    }
-
-    .logo span {
-      display: block;
-      font-size: 13px;
-      color: #666;
-      font-weight: normal;
-    }
-
-    nav {
-      display: flex;
-      gap: 22px;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #f97316;
-    }
-
-    .hero {
-      min-height: 520px;
-      padding: 70px 5%;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 40px;
-      background: linear-gradient(120deg, #111827 0%, #374151 60%, #f97316 60%, #fb923c 100%);
-      color: #fff;
-    }
-
-    .hero-content h2 {
-      font-size: 46px;
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-
-    .hero-content p {
-      font-size: 18px;
-      max-width: 580px;
-      margin-bottom: 28px;
-      color: #f3f4f6;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 22px;
-      border-radius: 8px;
-      font-weight: 700;
-      display: inline-block;
-      transition: 0.2s;
-    }
-
-    .btn-primary {
-      background: #f97316;
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: #ea580c;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 2px solid #fff;
-      color: #fff;
-    }
-
-    .btn-outline:hover {
-      background: #fff;
-      color: #1f2933;
-    }
-
-    .hero-card {
-      background: #fff;
-      color: #1f2933;
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.22);
-    }
-
-    .hero-card h3 {
-      font-size: 24px;
-      margin-bottom: 18px;
-      color: #f97316;
-    }
-
-    .hero-card ul {
-      list-style: none;
-    }
-
-    .hero-card li {
-      padding: 10px 0;
-      border-bottom: 1px solid #e5e7eb;
-      font-weight: 600;
-    }
-
-    .hero-card li:last-child {
-      border-bottom: none;
-    }
-
-    section {
-      padding: 70px 5%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      font-size: 34px;
-      color: #1f2933;
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: #666;
-      font-size: 16px;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .category-card {
-      background: #fff;
-      padding: 28px 20px;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      transition: 0.2s;
-    }
-
-    .category-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .category-icon {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
-
-    .category-card h3 {
-      font-size: 18px;
-      color: #1f2933;
-      margin-bottom: 8px;
-    }
-
-    .category-card p {
-      color: #666;
-      font-size: 14px;
-    }
-
-    .about {
-      background: #fff;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .about-box {
-      background: #f3f4f6;
-      border-left: 6px solid #f97316;
-      padding: 28px;
-      border-radius: 12px;
-    }
-
-    .about h2 {
-      font-size: 34px;
-      color: #1f2933;
-      margin-bottom: 16px;
-    }
-
-    .about p {
-      margin-bottom: 14px;
-      color: #444;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .product-card {
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .product-image {
-      height: 160px;
-      background: #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 54px;
-    }
-
-    .product-info {
-      padding: 18px;
-    }
-
-    .product-info h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: #1f2933;
-    }
-
-    .product-info p {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 12px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #ffedd5;
-      color: #c2410c;
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .whatsapp-section {
-      background: #1f2933;
-      color: #fff;
-      text-align: center;
-      border-radius: 0;
-    }
-
-    .whatsapp-section h2 {
-      font-size: 34px;
-      margin-bottom: 12px;
-    }
-
-    .whatsapp-section p {
-      max-width: 650px;
-      margin: 0 auto 25px;
-      color: #e5e7eb;
-    }
-
-    .btn-whatsapp {
-      background: #22c55e;
-      color: #fff;
-    }
-
-    .btn-whatsapp:hover {
-      background: #16a34a;
-      transform: translateY(-2px);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .contact-card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .contact-card h3 {
-      color: #f97316;
-      margin-bottom: 8px;
-    }
-
-    footer {
-      background: #111827;
-      color: #fff;
-      padding: 25px 5%;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    @media (max-width: 900px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .hero,
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-content h2 {
-        font-size: 36px;
-      }
-
-      .categories,
-      .products,
-      .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 560px) {
-      .top-bar {
-        text-align: center;
-        justify-content: center;
-      }
-
-      .hero {
-        padding: 50px 5%;
-      }
-
-      .hero-content h2 {
-        font-size: 30px;
-      }
-
-      .categories,
-      .products,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title h2,
-      .about h2,
-      .whatsapp-section h2 {
-        font-size: 28px;
-      }
-    }
-  </style>
+  <title>AMM Elétrica, Hidráulica e Materiais de Construção</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div class="top-bar">
-    <span>📍 Atendimento local e entregas na região</span>
-    <span>📞 WhatsApp: (00) 00000-0000</span>
+    <span>📍 Rua Tabapuã, 373 - Itaim Bibi - São Paulo/SP</span>
+    <span>📞 (11) 2507-0717 | WhatsApp: (11) 96634-2982</span>
   </div>
 
-  <header>
+  <header class="site-header">
     <div class="logo">
       <div class="logo-box">AMM</div>
       <div>
-        <h1>AMM <span>Materiais de Construção</span></h1>
+        <h1>AMM</h1>
+        <span>Elétrica, Hidráulica e Materiais de Construção</span>
       </div>
     </div>
 
-    <nav>
+    <nav class="menu">
       <a href="#inicio">Início</a>
-      <a href="#categorias">Categorias</a>
+      <a href="#categorias">Produtos</a>
       <a href="#sobre">Sobre</a>
-      <a href="#produtos">Produtos</a>
+      <a href="#horario">Horário</a>
       <a href="#contato">Contato</a>
     </nav>
   </header>
@@ -438,160 +33,174 @@
   <main>
     <section class="hero" id="inicio">
       <div class="hero-content">
-        <h2>Tudo para sua obra em um só lugar</h2>
+        <p class="eyebrow">Loja no Itaim Bibi</p>
+        <h2>Materiais para obra, reparos e manutenção em um só lugar.</h2>
         <p>
-          Na AMM Materiais de Construção, você encontra produtos para construção, reforma e acabamento, com atendimento próximo, orientação na escolha dos materiais e entrega para facilitar o seu dia.
+          A AMM atende quem precisa de materiais elétricos, hidráulicos, ferramentas, tintas, ferragens e itens para construção com agilidade, variedade e atendimento direto.
         </p>
         <div class="buttons">
-          <a class="btn btn-primary" href="#produtos">Ver produtos</a>
-          <a class="btn btn-outline" href="https://wa.me/5500000000000" target="_blank">Falar no WhatsApp</a>
+          <a class="btn btn-primary" href="https://wa.me/5511966342982?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20na%20AMM." target="_blank">Pedir orçamento</a>
+          <a class="btn btn-outline" href="#categorias">Ver produtos</a>
         </div>
       </div>
 
       <div class="hero-card">
-        <h3>Por que comprar na AMM?</h3>
-        <ul>
-          <li>✅ Atendimento rápido e direto</li>
-          <li>✅ Produtos para obra, reforma e acabamento</li>
-          <li>✅ Ajuda para escolher o material certo</li>
-          <li>✅ Entrega conforme disponibilidade da região</li>
-          <li>✅ Orçamento pelo WhatsApp</li>
-        </ul>
+        <h3>Encontre na AMM</h3>
+        <div class="hero-list">
+          <span>Cimento</span>
+          <span>Areia</span>
+          <span>Argamassas</span>
+          <span>Gesso</span>
+          <span>Drywall</span>
+          <span>Rejuntes</span>
+          <span>Reparos</span>
+          <span>Chuveiros</span>
+          <span>Vassouras</span>
+          <span>Assentos</span>
+          <span>Lâmpadas</span>
+          <span>Conduítes</span>
+          <span>Tintas</span>
+          <span>Tubos e conexões</span>
+          <span>Pregos e parafusos</span>
+          <span>Ferramentas</span>
+        </div>
       </div>
     </section>
 
     <section id="categorias">
       <div class="section-title">
-        <h2>Categorias de produtos</h2>
-        <p>Materiais essenciais para cada etapa da sua obra.</p>
+        <p class="eyebrow">Produtos e setores</p>
+        <h2>O que você encontra na loja</h2>
+        <p>Itens para construção, manutenção, reparo e acabamento.</p>
       </div>
 
       <div class="categories">
-        <div class="category-card">
-          <div class="category-icon">🧱</div>
-          <h3>Construção</h3>
-          <p>Cimento, areia, pedra, blocos, tijolos e materiais básicos.</p>
-        </div>
+        <article class="category-card">
+          <div class="category-icon">⚡</div>
+          <h3>Elétrica</h3>
+          <p>Lâmpadas, conduítes, fios, tomadas, interruptores e acessórios elétricos.</p>
+        </article>
 
-        <div class="category-card">
-          <div class="category-icon">🔧</div>
-          <h3>Ferragens</h3>
-          <p>Parafusos, ferramentas, acessórios e itens para instalação.</p>
-        </div>
-
-        <div class="category-card">
+        <article class="category-card">
           <div class="category-icon">🚿</div>
           <h3>Hidráulica</h3>
-          <p>Tubos, conexões, torneiras, registros e acessórios hidráulicos.</p>
-        </div>
+          <p>Tubos e conexões, torneiras, registros, chuveiros e peças de reparo.</p>
+        </article>
 
-        <div class="category-card">
-          <div class="category-icon">💡</div>
-          <h3>Elétrica</h3>
-          <p>Fios, cabos, tomadas, disjuntores, lâmpadas e componentes.</p>
-        </div>
+        <article class="category-card">
+          <div class="category-icon">🧱</div>
+          <h3>Construção</h3>
+          <p>Cimento, areia, argamassas, gesso, drywall, rejuntes e materiais básicos.</p>
+        </article>
+
+        <article class="category-card">
+          <div class="category-icon">🛠️</div>
+          <h3>Ferramentas e ferragens</h3>
+          <p>Ferramentas, pregos, parafusos, silicones, selantes e itens para instalação.</p>
+        </article>
+
+        <article class="category-card">
+          <div class="category-icon">🎨</div>
+          <h3>Tintas e acabamento</h3>
+          <p>Tintas, acessórios de pintura, rejuntes, assentos e itens de acabamento.</p>
+        </article>
+
+        <article class="category-card">
+          <div class="category-icon">🧹</div>
+          <h3>Utilidades</h3>
+          <p>Vassouras, materiais de limpeza e produtos de apoio para o dia a dia.</p>
+        </article>
       </div>
     </section>
 
     <section class="about" id="sobre">
       <div>
-        <h2>Uma loja feita para ajudar quem está construindo ou reformando</h2>
+        <p class="eyebrow">Sobre a AMM</p>
+        <h2>Atendimento próximo para quem precisa resolver rápido.</h2>
         <p>
-          A AMM nasceu com o objetivo de oferecer um atendimento simples, honesto e eficiente para quem precisa comprar materiais de construção sem complicação.
+          A AMM Elétrica, Hidráulica e Materiais de Construção fica no Itaim Bibi e oferece produtos para pequenos reparos, reformas, manutenção e construção.
         </p>
         <p>
-          Aqui, o cliente pode tirar dúvidas, pedir orçamento e encontrar produtos para diferentes fases da obra, desde o material bruto até itens de acabamento.
+          A proposta da loja é facilitar a compra de quem precisa de orientação, agilidade e variedade, seja para casa, condomínio, escritório ou obra.
         </p>
       </div>
 
       <div class="about-box">
-        <h3>Nosso compromisso</h3>
-        <p>
-          Atender bem, indicar o produto certo e ajudar o cliente a economizar tempo na hora de comprar materiais para sua obra.
-        </p>
+        <h3>Informações principais</h3>
+        <p><strong>Telefone:</strong> (11) 2507-0717</p>
+        <p><strong>WhatsApp:</strong> (11) 96634-2982</p>
+        <p><strong>E-mail:</strong> deposito_amm@hotmail.com</p>
+        <p><strong>Instagram:</strong> @deposito_amm</p>
       </div>
     </section>
 
-    <section id="produtos">
-      <div class="section-title">
-        <h2>Produtos em destaque</h2>
-        <p>Alguns itens que você pode encontrar ou solicitar por orçamento.</p>
-      </div>
-
-      <div class="products">
-        <div class="product-card">
-          <div class="product-image">🏗️</div>
-          <div class="product-info">
-            <h3>Cimento</h3>
-            <p>Produto essencial para construção, reforma, concreto e assentamento.</p>
-            <span class="tag">Consultar valor</span>
+    <section class="hours" id="horario">
+      <div class="hours-card">
+        <p class="eyebrow">Horário de funcionamento</p>
+        <h2>Estamos prontos para atender você</h2>
+        <div class="hours-grid">
+          <div>
+            <h3>Segunda a sexta-feira</h3>
+            <p>das 07:30h às 18:00h</p>
           </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image">🧱</div>
-          <div class="product-info">
-            <h3>Blocos e tijolos</h3>
-            <p>Opções para alvenaria, muros, paredes e pequenas reformas.</p>
-            <span class="tag">Sob orçamento</span>
+          <div>
+            <h3>Sábados</h3>
+            <p>das 07:30h às 13:00h</p>
           </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image">🎨</div>
-          <div class="product-info">
-            <h3>Tintas e acessórios</h3>
-            <p>Tintas, rolos, pincéis, bandejas e materiais para pintura.</p>
-            <span class="tag">Disponível</span>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image">🛠️</div>
-          <div class="product-info">
-            <h3>Ferramentas</h3>
-            <p>Ferramentas manuais e acessórios para pequenos reparos e obra.</p>
-            <span class="tag">Consultar estoque</span>
+          <div>
+            <h3>Domingos e feriados</h3>
+            <p>Fechado</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="whatsapp-section">
-      <h2>Precisa de orçamento?</h2>
+      <h2>Quer fazer um orçamento?</h2>
       <p>
-        Envie sua lista de materiais pelo WhatsApp. A AMM ajuda você a organizar o pedido e verificar a disponibilidade dos produtos.
+        Mande sua lista de materiais pelo WhatsApp e fale diretamente com a AMM.
       </p>
-      <a class="btn btn-whatsapp" href="https://wa.me/5500000000000" target="_blank">Chamar no WhatsApp</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/5511966342982?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20na%20AMM." target="_blank">Chamar no WhatsApp</a>
     </section>
 
     <section id="contato">
       <div class="section-title">
-        <h2>Contato e atendimento</h2>
-        <p>Fale com a AMM e solicite seu orçamento.</p>
+        <p class="eyebrow">Contato</p>
+        <h2>Fale com a AMM</h2>
+        <p>Atendimento por telefone, WhatsApp, e-mail e Instagram.</p>
       </div>
 
       <div class="contact-grid">
         <div class="contact-card">
+          <h3>Telefone</h3>
+          <p>(11) 2507-0717</p>
+        </div>
+
+        <div class="contact-card">
           <h3>WhatsApp</h3>
-          <p>(00) 00000-0000</p>
+          <p>(11) 96634-2982</p>
         </div>
 
         <div class="contact-card">
+          <h3>E-mail</h3>
+          <p>deposito_amm@hotmail.com</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Instagram</h3>
+          <p>@deposito_amm</p>
+        </div>
+
+        <div class="contact-card contact-card-wide">
           <h3>Endereço</h3>
-          <p>Rua Exemplo, 000 - Sua Cidade/SP</p>
-        </div>
-
-        <div class="contact-card">
-          <h3>Horário</h3>
-          <p>Segunda a sexta: 8h às 18h<br />Sábado: 8h às 13h</p>
+          <p>Rua Tabapuã, 373 - Itaim Bibi - CEP: 04533-011 - São Paulo/SP</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 AMM Materiais de Construção. Todos os direitos reservados.</p>
+    <p>© 2026 AMM Elétrica, Hidráulica e Materiais de Construção. Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>
