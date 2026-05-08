@@ -343,6 +343,82 @@ section {
   color: #ffffff;
 }
 
+.repair-section {
+  background:
+    linear-gradient(180deg, var(--cinza-claro), var(--branco));
+}
+
+.repair-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr 0.95fr;
+  gap: 22px;
+}
+
+.repair-card {
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 14px 28px rgba(16, 24, 61, 0.08);
+  transition: 0.22s;
+}
+
+.repair-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--azul-principal);
+  box-shadow: 0 20px 36px rgba(16, 24, 61, 0.14);
+}
+
+.repair-featured {
+  background: linear-gradient(145deg, var(--azul-principal), var(--azul-escuro));
+  color: var(--branco);
+}
+
+.repair-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--azul-principal);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.repair-featured .repair-icon {
+  background: var(--branco);
+  color: var(--azul-principal);
+}
+
+.repair-card h3 {
+  color: var(--azul-escuro);
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.repair-card p {
+  color: var(--cinza-texto);
+  margin-bottom: 16px;
+}
+
+.repair-featured h3,
+.repair-featured p {
+  color: var(--branco);
+}
+
+.repair-card a {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--branco);
+  background: var(--verde-whatsapp);
+  padding: 11px 16px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
 .suppliers-section {
   background: var(--cinza-claro);
 }
@@ -770,12 +846,14 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .repair-grid,
   .suppliers-grid,
   .hours-grid,
   .contact-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .repair-featured,
   .contact-card-wide {
     grid-column: span 2;
   }
@@ -809,6 +887,7 @@ footer {
   }
 
   .hero-list,
+  .repair-grid,
   .suppliers-grid,
   .hours-grid,
   .contact-grid,
@@ -816,6 +895,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .repair-featured,
   .contact-card-wide {
     grid-column: span 1;
   }
@@ -835,7 +915,8 @@ footer {
   .calculator-card,
   .result-card,
   .route-card,
-  .drywall-panel {
+  .drywall-panel,
+  .repair-card {
     padding: 22px;
   }
 
