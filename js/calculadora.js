@@ -1,10 +1,6 @@
-const tipoServico = document.getElementById("tipo-servico");
-const comprimentoInput = document.getElementById("comprimento");
-const larguraInput = document.getElementById("largura");
-const espessuraArea = document.getElementById("espessura-area");
-const espessuraInput = document.getElementById("espessura");
-const argamassaArea = document.getElementById("argamassa-area");
-const tipoArgamassa = document.getElementById("tipo-argamassa");
+const materialCalculo = document.getElementById("material-calculo");
+const larguraParedeInput = document.getElementById("largura-parede");
+const alturaParedeInput = document.getElementById("altura-parede");
 const perdaSelect = document.getElementById("perda");
 const calcularBtn = document.getElementById("calcular");
 const resultadoBox = document.getElementById("resultado-calculo");
@@ -20,38 +16,6 @@ function formatarNumero(valor, casas = 2) {
   });
 }
 
-function atualizarCampos() {
-  const servico = tipoServico.value;
-
-  if (servico === "argamassa" || servico === "drywall") {
-    espessuraArea.classList.add("field-hidden");
-  } else {
-    espessuraArea.classList.remove("field-hidden");
-  }
-
-  if (servico === "argamassa") {
-    argamassaArea.classList.remove("field-hidden");
-  } else {
-    argamassaArea.classList.add("field-hidden");
-  }
-
-  resultadoBox.innerHTML = "Informe as medidas e clique em calcular para ver a estimativa.";
-}
-
-function validarMedidas(comprimento, largura, espessura, servico) {
-  if (!comprimento || comprimento <= 0 || !largura || largura <= 0) {
-    resultadoBox.innerHTML = "Digite comprimento e largura válidos para calcular a área.";
-    return false;
-  }
-
-  if ((servico === "contrapiso" || servico === "areia") && (!espessura || espessura <= 0)) {
-    resultadoBox.innerHTML = "Digite uma espessura válida em centímetros.";
-    return false;
-  }
-
-  return true;
-}
-
 function montarResultado(titulo, linhas, observacao) {
   const lista = linhas.map((linha) => `<li>${linha}</li>`).join("");
 
@@ -59,98 +23,79 @@ function montarResultado(titulo, linhas, observacao) {
     <strong>${titulo}</strong>
     <ul class="resultado-lista">${lista}</ul>
     <span>${observacao}</span>
-    <small>Este cálculo é uma estimativa para orçamento inicial. Para compra final, confirme medidas, tipo de aplicação e rendimento do produto com a AMM.</small>
+    <small>Este cálculo é uma estimativa para orçamento inicial. Para compra final, confirme as medidas, recortes e tipo de aplicação com a AMM.</small>
   `;
 }
 
 function calcularMaterial() {
-  const servico = tipoServico.value;
-  const comprimento = Number(comprimentoInput.value);
-  const largura = Number(larguraInput.value);
-  const espessuraCm = Number(espessuraInput.value);
+  const material = materialCalculo.value;
+  const largura = Number(larguraParedeInput.value);
+  const altura = Number(alturaParedeInput.value);
   const fatorPerda = Number(perdaSelect.value);
-  const area = comprimento * largura;
 
-  if (!validarMedidas(comprimento, largura, espessuraCm, servico)) {
+  if (!largura || largura <= 0 || !altura || altura <= 0) {
+    resultadoBox.innerHTML = "Digite largura e altura válidas para calcular a parede.";
     return;
   }
 
-  if (servico === "contrapiso") {
-    const espessuraM = espessuraCm / 100;
-    const volume = area * espessuraM;
-    const volumeComPerda = volume * fatorPerda;
+  const area = largura * altura;
+  const areaComPerda = area * fatorPerda;
 
-    const sacosCimento25 = arredondar(volumeComPerda * 7);
-    const sacosAreia20 = arredondar(volumeComPerda / 0.012);
-
-    montarResultado(
-      "Estimativa para contrapiso",
-      [
-        `Área calculada: ${formatarNumero(area)} m²`,
-        `Volume aproximado: ${formatarNumero(volumeComPerda)} m³ já com perda`,
-        `Cimento 25 kg: ${sacosCimento25} saco(s)`,
-        `Areia 20 kg: ${sacosAreia20} saco(s)`
-      ],
-      "Base prática: cálculo por volume com traço simples para estimativa inicial. A quantidade real muda conforme espessura final, nivelamento, umidade da areia, traço usado e perdas na obra."
-    );
-  }
-
-  if (servico === "areia") {
-    const espessuraM = espessuraCm / 100;
-    const volume = area * espessuraM;
-    const volumeComPerda = volume * fatorPerda;
-    const sacosAreia20 = arredondar(volumeComPerda / 0.012);
-
-    montarResultado(
-      "Estimativa para areia ensacada",
-      [
-        `Área calculada: ${formatarNumero(area)} m²`,
-        `Volume aproximado: ${formatarNumero(volumeComPerda)} m³ já com perda`,
-        `Areia 20 kg: ${sacosAreia20} saco(s)`
-      ],
-      "Base prática: cálculo por volume. A quantidade pode mudar conforme compactação, umidade da areia e espessura real aplicada."
-    );
-  }
-
-  if (servico === "argamassa") {
-    const consumoKgM2 = tipoArgamassa.value === "dupla" ? 8 : 5;
-    const pesoSaco = 20;
-    const consumoTotal = area * consumoKgM2 * fatorPerda;
-    const sacosArgamassa = arredondar(consumoTotal / pesoSaco);
-
-    montarResultado(
-      "Estimativa para argamassa",
-      [
-        `Área calculada: ${formatarNumero(area)} m²`,
-        `Consumo usado: ${consumoKgM2} kg por m²`,
-        `Consumo total aproximado: ${formatarNumero(consumoTotal)} kg`,
-        `Argamassa 20 kg: ${sacosArgamassa} saco(s)`
-      ],
-      "Base prática: consumo médio por m². O rendimento muda conforme tamanho da peça, tipo de desempenadeira, base, dupla camada e recomendação do fabricante."
-    );
-  }
-
-  if (servico === "drywall") {
-    const areaComPerda = area * fatorPerda;
+  if (material === "drywall") {
     const areaChapa = 2.88;
     const chapas = arredondar(areaComPerda / areaChapa);
-    const montantes = arredondar(comprimento / 0.60) + 1;
-    const guias = arredondar((comprimento * 2) / 3);
+    const montantes = arredondar(largura / 0.60) + 1;
+    const guias = arredondar((largura * 2) / 3);
 
     montarResultado(
       "Estimativa para drywall",
       [
-        `Área calculada: ${formatarNumero(area)} m²`,
-        `Área com perda: ${formatarNumero(areaComPerda)} m²`,
+        `Área da parede: ${formatarNumero(area)} m²`,
+        `Área considerada com perda: ${formatarNumero(areaComPerda)} m²`,
         `Chapas de drywall 1,20 m x 2,40 m: ${chapas} unidade(s)`,
         `Montantes aproximados: ${montantes} peça(s)`,
         `Guias aproximadas de 3 m: ${guias} peça(s)`
       ],
-      "Base prática: cálculo inicial por área de chapa. Projetos de drywall também precisam considerar estrutura, parafusos, fita, massa, recortes, portas, vãos e tipo de parede ou forro."
+      "Base usada: chapa padrão de 1,20 m x 2,40 m e montantes espaçados aproximadamente a cada 60 cm. Pode variar conforme vãos, portas, recortes, tipo de parede e projeto."
+    );
+  }
+
+  if (material === "baiano") {
+    const tijolosPorM2 = 25;
+    const tijolos = arredondar(areaComPerda * tijolosPorM2);
+
+    montarResultado(
+      "Estimativa para tijolo baiano",
+      [
+        `Área da parede: ${formatarNumero(area)} m²`,
+        `Área considerada com perda: ${formatarNumero(areaComPerda)} m²`,
+        `Medida do tijolo: 11,5 x 14 x 24 cm`,
+        `Consumo usado: aproximadamente ${tijolosPorM2} peças por m²`,
+        `Quantidade estimada: ${tijolos} tijolo(s)`
+      ],
+      "Base usada: estimativa média por metro quadrado. A quantidade real muda conforme posição do tijolo, junta de argamassa, recortes, pilares, vãos de portas e janelas."
+    );
+  }
+
+  if (material === "comum") {
+    const tijolosPorM2 = 70;
+    const tijolos = arredondar(areaComPerda * tijolosPorM2);
+
+    montarResultado(
+      "Estimativa para tijolinho comum",
+      [
+        `Área da parede: ${formatarNumero(area)} m²`,
+        `Área considerada com perda: ${formatarNumero(areaComPerda)} m²`,
+        `Medida do tijolinho: 9 x 18 x 4 cm`,
+        `Consumo usado: aproximadamente ${tijolosPorM2} peças por m²`,
+        `Quantidade estimada: ${tijolos} tijolinho(s)`
+      ],
+      "Base usada: estimativa média por metro quadrado. O consumo pode mudar conforme paginação, espessura da junta, recortes, perdas e forma de assentamento."
     );
   }
 }
 
-tipoServico.addEventListener("change", atualizarCampos);
 calcularBtn.addEventListener("click", calcularMaterial);
-atualizarCampos();
+materialCalculo.addEventListener("change", () => {
+  resultadoBox.innerHTML = "Informe as medidas e clique em calcular para ver a estimativa.";
+});
