@@ -24,8 +24,9 @@
     <nav class="menu">
       <a href="#inicio">Início</a>
       <a href="#categorias">Produtos</a>
+      <a href="#calculadora">Calculadora</a>
       <a href="#sobre">Sobre</a>
-      <a href="#horario">Horário</a>
+      <a href="#localizacao">Localização</a>
       <a href="#contato">Contato</a>
     </nav>
   </header>
@@ -40,15 +41,15 @@
         </p>
         <div class="buttons">
           <a class="btn btn-primary" href="https://wa.me/5511966342982?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20na%20AMM." target="_blank">Pedir orçamento</a>
-          <a class="btn btn-outline" href="#categorias">Ver produtos</a>
+          <a class="btn btn-outline" href="#calculadora">Calcular material</a>
         </div>
       </div>
 
       <div class="hero-card">
         <h3>Encontre na AMM</h3>
         <div class="hero-list">
-          <span>Cimento</span>
-          <span>Areia</span>
+          <span>Cimento 25 kg</span>
+          <span>Areia 20 kg</span>
           <span>Argamassas</span>
           <span>Gesso</span>
           <span>Drywall</span>
@@ -90,7 +91,7 @@
         <article class="category-card">
           <div class="category-icon">🧱</div>
           <h3>Construção</h3>
-          <p>Cimento, areia, argamassas, gesso, drywall, rejuntes e materiais básicos.</p>
+          <p>Cimento, areia ensacada, argamassas, gesso, drywall, rejuntes e materiais básicos.</p>
         </article>
 
         <article class="category-card">
@@ -110,6 +111,46 @@
           <h3>Utilidades</h3>
           <p>Vassouras, materiais de limpeza e produtos de apoio para o dia a dia.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="calculator-section" id="calculadora">
+      <div class="section-title">
+        <p class="eyebrow">Calculadora de materiais</p>
+        <h2>Estime a quantidade antes de comprar</h2>
+        <p>
+          Escolha o material, informe a medida aproximada e veja uma sugestão inicial de quantidade. O cálculo é uma estimativa e pode mudar conforme o tipo de serviço.
+        </p>
+      </div>
+
+      <div class="calculator-layout">
+        <div class="calculator-card">
+          <label for="material">Material</label>
+          <select id="material">
+            <option value="">Selecione uma opção</option>
+            <option value="cimento">Cimento 25 kg</option>
+            <option value="areia">Areia ensacada 20 kg</option>
+            <option value="argamassa">Argamassa</option>
+            <option value="drywall">Drywall</option>
+          </select>
+
+          <label for="area">Área aproximada em m²</label>
+          <input type="number" id="area" placeholder="Exemplo: 12" min="0" step="0.1" />
+
+          <div id="espessura-group" class="field-hidden">
+            <label for="espessura">Espessura aproximada em cm</label>
+            <input type="number" id="espessura" placeholder="Exemplo: 3" min="0" step="0.1" />
+          </div>
+
+          <button class="btn btn-calculator" id="calcular" type="button">Calcular quantidade</button>
+        </div>
+
+        <div class="result-card">
+          <h3>Resultado aproximado</h3>
+          <div id="resultado-calculo" class="resultado-calculo">
+            Selecione o material, informe a medida e clique em calcular.
+          </div>
+        </div>
       </div>
     </section>
 
@@ -150,6 +191,34 @@
           <div>
             <h3>Domingos e feriados</h3>
             <p>Fechado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="location-section" id="localizacao">
+      <div class="section-title">
+        <p class="eyebrow">Localização</p>
+        <h2>Como chegar na AMM</h2>
+        <p>Rua Tabapuã, 373 - Itaim Bibi - CEP: 04533-011 - São Paulo/SP</p>
+      </div>
+
+      <div class="location-layout">
+        <div class="map-card">
+          <iframe
+            title="Mapa da AMM Materiais de Construção"
+            src="https://www.google.com/maps?q=Rua%20Tabapu%C3%A3%2C%20373%20-%20Itaim%20Bibi%20-%20S%C3%A3o%20Paulo%20-%20SP&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="route-card">
+          <h3>Abra a rota no seu aplicativo</h3>
+          <p>Use o Google Maps ou o Waze para chegar com mais facilidade até a loja.</p>
+          <div class="buttons route-buttons">
+            <a class="btn btn-primary-dark" href="https://www.google.com/maps/search/?api=1&query=Rua%20Tabapu%C3%A3%2C%20373%20-%20Itaim%20Bibi%20-%20S%C3%A3o%20Paulo%20-%20SP" target="_blank">Abrir no Google Maps</a>
+            <a class="btn btn-waze" href="https://waze.com/ul?q=Rua%20Tabapu%C3%A3%2C%20373%20-%20Itaim%20Bibi%20-%20S%C3%A3o%20Paulo%20-%20SP&navigate=yes" target="_blank">Abrir no Waze</a>
           </div>
         </div>
       </div>
@@ -202,5 +271,7 @@
   <footer>
     <p>© 2026 AMM Elétrica, Hidráulica e Materiais de Construção. Todos os direitos reservados.</p>
   </footer>
+
+  <script src="js/calculadora.js"></script>
 </body>
 </html>
