@@ -1,0 +1,46 @@
+.floating-btn span,
+.route-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.floating-btn span i,
+.route-symbol i {
+  font-size: 22px;
+}
+
+.floating-whatsapp span i {
+  font-size: 24px;
+}
+
+.floating-maps span i {
+  font-size: 20px;
+}
+
+.floating-waze span i {
+  font-size: 23px;
+}
+
+.route-google .route-symbol {
+  background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
+}
+
+.route-waze .route-symbol {
+  background: #33ccff;
+}
+
+.floating-btn span {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.floating-btn:hover span {
+  background: rgba(255, 255, 255, 0.34);
+}
+
+@media (max-width: 620px) {
+  .floating-btn span i {
+    font-size: 21px;
+  }
+}
