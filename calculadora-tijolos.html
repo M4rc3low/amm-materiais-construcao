@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Tijolos | AMM</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/calculadora-drywall.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <span>📍 Rua Tabapuã, 373 - Itaim Bibi - São Paulo/SP</span>
+    <span>📞 (11) 2507-0717 | WhatsApp: (11) 96634-2982</span>
+  </div>
+
+  <header class="site-header">
+    <div class="logo">
+      <div class="logo-box">AMM</div>
+      <div>
+        <h1>AMM</h1>
+        <span>Elétrica, Hidráulica e Materiais de Construção</span>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="index.html#vitrine">Vitrine</a>
+      <a href="calculadora-drywall.html">Drywall</a>
+      <a href="calculadora-tijolos.html">Tijolos</a>
+      <a href="index.html#localizacao">Localização</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="calc-hero">
+      <div>
+        <p class="eyebrow-light">Assistente AMM</p>
+        <h2>Calculadora rápida de tijolos</h2>
+        <p>Escolha o tipo de tijolo, informe as medidas da parede e veja uma estimativa inicial de peças e pacotes com 10 unidades.</p>
+      </div>
+    </section>
+
+    <section class="calc-section">
+      <div class="calc-layout">
+        <form class="calc-form" id="tijolos-form">
+          <div class="calc-disclaimer">
+            <strong>Aviso importante</strong>
+            <p>A calculadora fornece apenas uma estimativa aproximada de materiais, com base nas medidas e informações preenchidas pelo cliente. O resultado não substitui a conferência técnica no local da obra nem a avaliação de um pedreiro ou profissional responsável. A quantidade final pode variar conforme medidas reais, recortes, vãos, espessura das juntas, forma de assentamento, perdas, paginação da parede e condições da obra.</p>
+          </div>
+
+          <div class="field-group full">
+            <label for="tipo-tijolo">Tipo de tijolo</label>
+            <select id="tipo-tijolo">
+              <option value="baiano">Tijolo baiano 11,5 x 14 x 24 cm</option>
+              <option value="comum">Tijolinho comum 9 x 18 x 4 cm</option>
+            </select>
+          </div>
+
+          <div class="form-note" id="nota-tijolo">
+            Os tijolos são considerados em pacotes com 10 unidades. Informe as medidas da parede e, se houver portas ou janelas, preencha os descontos.
+          </div>
+
+          <div class="calc-fields">
+            <div class="field-group">
+              <label for="largura-parede">Largura da parede (m)</label>
+              <input type="number" id="largura-parede" min="0" step="0.01" placeholder="Exemplo: 3" />
+            </div>
+
+            <div class="field-group">
+              <label for="altura-parede">Altura da parede (m)</label>
+              <input type="number" id="altura-parede" min="0" step="0.01" placeholder="Exemplo: 2.70" />
+            </div>
+
+            <div class="field-group">
+              <label for="qtd-portas">Quantidade de portas</label>
+              <input type="number" id="qtd-portas" min="0" step="1" value="0" />
+            </div>
+
+            <div class="field-group two-inputs">
+              <label>Medida da porta (m)</label>
+              <div>
+                <input type="number" id="largura-porta" min="0" step="0.01" placeholder="Largura" />
+                <input type="number" id="altura-porta" min="0" step="0.01" placeholder="Altura" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="qtd-janelas">Quantidade de janelas</label>
+              <input type="number" id="qtd-janelas" min="0" step="1" value="0" />
+            </div>
+
+            <div class="field-group two-inputs">
+              <label>Medida da janela (m)</label>
+              <div>
+                <input type="number" id="largura-janela" min="0" step="0.01" placeholder="Largura" />
+                <input type="number" id="altura-janela" min="0" step="0.01" placeholder="Altura" />
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group full">
+            <label for="perda">Margem de perda</label>
+            <select id="perda">
+              <option value="1.05">5% - pouca perda</option>
+              <option value="1.10" selected>10% - recomendado</option>
+              <option value="1.15">15% - muitos recortes</option>
+            </select>
+          </div>
+
+          <button type="button" class="calc-button" id="calcular-tijolos">Calcular tijolos</button>
+        </form>
+
+        <aside class="calc-result">
+          <h3>Resultado estimado</h3>
+          <div id="resultado-tijolos" class="result-box">
+            Preencha os dados da parede e clique em calcular.
+          </div>
+          <a class="whatsapp-result" href="https://wa.me/5511966342982?text=Ol%C3%A1%2C%20fiz%20uma%20estimativa%20na%20calculadora%20de%20tijolos%20da%20AMM.%20Gostaria%20de%20confirmar%20as%20quantidades%20e%20montar%20um%20or%C3%A7amento." target="_blank">Enviar estimativa para orçamento</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>© 2026 AMM Elétrica, Hidráulica e Materiais de Construção. Todos os direitos reservados.</p></footer>
+
+  <script src="js/calculadora-tijolos.js"></script>
+</body>
+</html>
