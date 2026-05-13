@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
 .hero-vitrine {
   min-height: 680px;
   position: relative;
@@ -210,6 +212,62 @@
   color: #eef2ff;
 }
 
+/* Ícones reais nos botões de rota e atalhos rápidos */
+.route-symbol,
+.floating-btn span {
+  font-size: 0;
+}
+
+.route-symbol::before,
+.floating-btn span::before {
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.route-google .route-symbol::before,
+.floating-maps span::before {
+  content: '\f5a0';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.route-waze .route-symbol::before,
+.floating-waze span::before {
+  content: '\f83f';
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
+}
+
+.floating-whatsapp span::before {
+  content: '\f232';
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.route-google .route-symbol,
+.floating-maps {
+  background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
+}
+
+.route-waze .route-symbol,
+.floating-waze {
+  background: #33ccff;
+}
+
+.floating-whatsapp {
+  background: #25d366;
+}
+
+.floating-btn span {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.floating-btn:hover span {
+  background: rgba(255, 255, 255, 0.35);
+}
+
 @media (max-width: 980px) {
   .hero-vitrine h2 {
     font-size: 44px;
@@ -263,5 +321,9 @@
   .store-info h2,
   .contact-final h2 {
     font-size: 28px;
+  }
+
+  .floating-btn span::before {
+    font-size: 22px;
   }
 }
