@@ -33,7 +33,7 @@ function trocarTipoProjeto() {
   } else {
     camposParede.classList.add('field-hidden');
     camposTeto.classList.remove('field-hidden');
-    notaProjeto.textContent = 'Para teto, informe largura e comprimento do ambiente. A calculadora estima chapas e estrutura básica de forro.';
+    notaProjeto.textContent = 'Para teto, informe largura e comprimento do ambiente. A calculadora estima chapas e estrutura básica de forro com perfil F-530.';
   }
 
   resultado.innerHTML = 'Preencha os dados do projeto e clique em calcular.';
@@ -46,7 +46,7 @@ function montarResultado(titulo, linhas, observacao) {
     <strong>${titulo}</strong>
     <ul>${itens}</ul>
     <span>${observacao}</span>
-    <small>Estimativa para orçamento inicial. Para compra final, confirme medidas, recortes, tipo de estrutura e recomendações do instalador.</small>
+    <small>Estimativa orientativa. A quantidade final pode variar conforme medidas reais, recortes, perdas, tipo de instalação, modulação da estrutura, marca dos produtos e avaliação do profissional responsável. Confirme antes da compra.</small>
   `;
 }
 
@@ -126,7 +126,7 @@ function calcularTeto() {
   const areaChapa = 2.88;
 
   const chapas = inteiroParaCima(areaComPerda / areaChapa);
-  const perfilF47 = inteiroParaCima((areaComPerda * 2.2) / 3);
+  const perfilF530 = inteiroParaCima((areaComPerda * 2.2) / 3);
   const perfilPerimetral = inteiroParaCima(perimetro / 3);
   const tirantes = inteiroParaCima(areaComPerda * 1.4);
   const suportes = tirantes;
@@ -140,7 +140,7 @@ function calcularTeto() {
       `Área do teto: ${formatar(area)} m²`,
       `Área considerada com perda: ${formatar(areaComPerda)} m²`,
       `Chapas de drywall 1,20 m x 2,40 m: ${chapas} unidade(s)`,
-      `Perfis F-47 de 3 m: ${perfilF47} peça(s)`,
+      `Perfis F-530 de 3 m: ${perfilF530} peça(s)`,
       `Perfil perimetral/tabica de 3 m: ${perfilPerimetral} peça(s)`,
       `Tirantes: aproximadamente ${tirantes} unidade(s)`,
       `Suportes niveladores: aproximadamente ${suportes} unidade(s)`,
@@ -148,7 +148,7 @@ function calcularTeto() {
       `Massa para drywall: aproximadamente ${massaKg} kg`,
       `Fita para juntas: aproximadamente ${fitaM} m`
     ],
-    'Base usada: cálculo por área de teto, chapas de 1,20 m x 2,40 m, estrutura metálica básica e consumo médio de acessórios.'
+    'Base usada: cálculo por área de teto, chapas de 1,20 m x 2,40 m, perfil F-530, estrutura metálica básica e consumo médio de acessórios.'
   );
 }
 
