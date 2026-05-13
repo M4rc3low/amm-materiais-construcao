@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Drywall | AMM</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/calculadora-drywall.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <span>📍 Rua Tabapuã, 373 - Itaim Bibi - São Paulo/SP</span>
+    <span>📞 (11) 2507-0717 | WhatsApp: (11) 96634-2982</span>
+  </div>
+
+  <header class="site-header">
+    <div class="logo">
+      <div class="logo-box">AMM</div>
+      <div>
+        <h1>AMM</h1>
+        <span>Elétrica, Hidráulica e Materiais de Construção</span>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="index.html#vitrine">Vitrine</a>
+      <a href="calculadora-drywall.html">Calculadora</a>
+      <a href="index.html#localizacao">Localização</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="calc-hero">
+      <div>
+        <p class="eyebrow-light">Assistente AMM</p>
+        <h2>Calculadora rápida de drywall</h2>
+        <p>Escolha se o projeto é de parede ou teto, informe as medidas e veja uma estimativa inicial de materiais para pedir orçamento.</p>
+      </div>
+    </section>
+
+    <section class="calc-section">
+      <div class="calc-layout">
+        <form class="calc-form" id="drywall-form">
+          <div class="field-group full">
+            <label for="tipo-projeto">O que você quer calcular?</label>
+            <select id="tipo-projeto">
+              <option value="parede">Parede de drywall</option>
+              <option value="teto">Teto de drywall</option>
+            </select>
+          </div>
+
+          <div class="form-note" id="nota-projeto">
+            Para parede, informe comprimento e altura. Se houver porta ou janela, a calculadora desconta a área.
+          </div>
+
+          <div id="campos-parede" class="calc-fields">
+            <div class="field-group">
+              <label for="modelo-parede">Modelo da parede</label>
+              <select id="modelo-parede">
+                <option value="reta">Parede reta</option>
+                <option value="l">Parede em L</option>
+                <option value="tripla">Parede tripla</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="faces-parede">Fechamento da parede</label>
+              <select id="faces-parede">
+                <option value="2">Duas faces</option>
+                <option value="1">Uma face</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="comprimento-parede">Comprimento total da parede (m)</label>
+              <input type="number" id="comprimento-parede" min="0" step="0.01" placeholder="Exemplo: 4" />
+            </div>
+
+            <div class="field-group">
+              <label for="altura-parede">Altura da parede (m)</label>
+              <input type="number" id="altura-parede" min="0" step="0.01" placeholder="Exemplo: 2.70" />
+            </div>
+
+            <div class="field-group">
+              <label for="qtd-portas">Quantidade de portas</label>
+              <input type="number" id="qtd-portas" min="0" step="1" value="0" />
+            </div>
+
+            <div class="field-group two-inputs">
+              <label>Medida da porta (m)</label>
+              <div>
+                <input type="number" id="largura-porta" min="0" step="0.01" placeholder="Largura" />
+                <input type="number" id="altura-porta" min="0" step="0.01" placeholder="Altura" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="qtd-janelas">Quantidade de janelas</label>
+              <input type="number" id="qtd-janelas" min="0" step="1" value="0" />
+            </div>
+
+            <div class="field-group two-inputs">
+              <label>Medida da janela (m)</label>
+              <div>
+                <input type="number" id="largura-janela" min="0" step="0.01" placeholder="Largura" />
+                <input type="number" id="altura-janela" min="0" step="0.01" placeholder="Altura" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="isolamento">Vai usar isolamento?</label>
+              <select id="isolamento">
+                <option value="nao">Não</option>
+                <option value="sim">Sim</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="teto-ambiente">Como é o teto do ambiente?</label>
+              <select id="teto-ambiente">
+                <option value="laje">Laje</option>
+                <option value="forro-pronto">Forro já construído</option>
+                <option value="forro-novo">Forro vai ser construído</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="campos-teto" class="calc-fields field-hidden">
+            <div class="field-group">
+              <label for="largura-teto">Largura do teto (m)</label>
+              <input type="number" id="largura-teto" min="0" step="0.01" placeholder="Exemplo: 3" />
+            </div>
+
+            <div class="field-group">
+              <label for="comprimento-teto">Comprimento do teto (m)</label>
+              <input type="number" id="comprimento-teto" min="0" step="0.01" placeholder="Exemplo: 5" />
+            </div>
+          </div>
+
+          <div class="field-group full">
+            <label for="perda">Margem de perda</label>
+            <select id="perda">
+              <option value="1.05">5% - pouca perda</option>
+              <option value="1.10" selected>10% - recomendado</option>
+              <option value="1.15">15% - muitos recortes</option>
+            </select>
+          </div>
+
+          <button type="button" class="calc-button" id="calcular-drywall">Calcular materiais</button>
+        </form>
+
+        <aside class="calc-result">
+          <h3>Resultado estimado</h3>
+          <div id="resultado-drywall" class="result-box">
+            Preencha os dados do projeto e clique em calcular.
+          </div>
+          <a class="whatsapp-result" href="https://wa.me/5511966342982" target="_blank">Pedir orçamento no WhatsApp</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>© 2026 AMM Elétrica, Hidráulica e Materiais de Construção. Todos os direitos reservados.</p></footer>
+
+  <script src="js/calculadora-drywall.js"></script>
+</body>
+</html>
