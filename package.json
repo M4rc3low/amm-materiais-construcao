@@ -1,0 +1,11 @@
+{
+  "name": "amm-materiais-construcao",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/smoke-test.mjs",
+    "build": "npm test"
+  },
+  "devDependencies": {}
+}
