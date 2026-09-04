@@ -1,90 +1,101 @@
 # AMM Materiais de Construção
 
-Projeto web desenvolvido para representar digitalmente a AMM Materiais de Construção, com foco em presença online, organização visual de produtos, atendimento e fortalecimento da marca.
+![HTML5](https://img.shields.io/badge/HTML5-static_site-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-responsive-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=111)
+![Docker](https://img.shields.io/badge/Docker-Nginx-2496ED?logo=docker&logoColor=white)
+![CI](https://img.shields.io/badge/GitHub_Actions-CI-2088FF?logo=githubactions&logoColor=white)
 
-## Visão geral
+Site da **AMM Materiais de Construção**, desenvolvido para fortalecer a presença digital da loja e transformar necessidades reais do negócio em soluções web simples, úteis e fáceis de manter.
 
-O objetivo deste projeto é criar uma presença digital moderna para uma loja de materiais de construção, permitindo apresentar produtos, serviços e informações de forma mais profissional e acessível.
+## O que o projeto entrega
 
-Além do aspecto visual, o projeto também serve como laboratório de desenvolvimento front-end e organização de aplicações web.
+- Página institucional e apresentação da loja
+- Seções de produtos, serviços e contato
+- Integração de atendimento via WhatsApp
+- Layout responsivo para desktop e dispositivos móveis
+- Calculadora de materiais para drywall
+- Calculadora de tijolos
+- Domínio personalizado via `CNAME`
+- Empacotamento em container com Nginx
+- Validação automática da estrutura por smoke test
+- CI com GitHub Actions para validar o projeto e o build Docker
 
-## Objetivos do projeto
+## Stack técnica
 
-- Fortalecer a presença online da loja
-- Melhorar apresentação visual da marca
-- Facilitar contato e atendimento
-- Organizar produtos e categorias
-- Criar base para futuras integrações e automações
-- Desenvolver experiência prática em aplicações web
+| Camada | Tecnologia |
+| --- | --- |
+| Interface | HTML5 |
+| Estilização | CSS3 |
+| Interações e calculadoras | JavaScript |
+| Validação | Node.js + smoke test |
+| Container | Docker |
+| Servidor web no container | Nginx Alpine |
+| Integração contínua | GitHub Actions |
 
-## Funcionalidades previstas
+> Este projeto é uma aplicação web estática. Ele **não utiliza React, Vite ou Tailwind CSS** na versão atual.
 
-- Página institucional da loja
-- Catálogo de produtos
-- Sessão de contato e localização
-- Layout responsivo
-- Integração com WhatsApp
-- Destaque de promoções e novidades
-- Estrutura preparada para futuras expansões
+## Estrutura principal
 
-## Tecnologias utilizadas
-
-- HTML5
-- CSS3
-- JavaScript
-- React
-- Vite
-- Tailwind CSS
-
-## Estrutura do projeto
-
-```bash
-/src
-/components
-/pages
-/assets
-/public
+```text
+.
+├── index.html
+├── calculadora-drywall.html
+├── calculadora-tijolos.html
+├── css/
+├── js/
+├── img/
+├── scripts/
+│   └── smoke-test.mjs
+├── .github/workflows/
+│   └── ci.yml
+├── Dockerfile
+├── CNAME
+└── package.json
 ```
 
 ## Como executar localmente
 
-Clone o repositório:
-
 ```bash
 git clone https://github.com/M4rc3low/amm-materiais-construcao.git
-```
-
-Acesse a pasta:
-
-```bash
 cd amm-materiais-construcao
+python -m http.server 8000
 ```
 
-Instale as dependências:
+Depois acesse `http://localhost:8000`.
+
+### Executar com Docker
 
 ```bash
-npm install
+docker build -t amm-materiais-construcao .
+docker run --rm -p 8080:80 amm-materiais-construcao
 ```
 
-Execute o projeto:
+Depois acesse `http://localhost:8080`.
+
+## Validação
+
+O repositório possui um smoke test que verifica arquivos essenciais e conteúdo mínimo esperado da página:
 
 ```bash
-npm run dev
+npm test
 ```
+
+No GitHub Actions, cada push ou pull request para `main` executa o teste e valida também a construção da imagem Docker.
 
 ## Roadmap
 
-- [ ] Melhorar identidade visual
-- [ ] Adicionar screenshots
-- [ ] Criar versão online pública
-- [ ] Adicionar painel administrativo
-- [ ] Integrar catálogo de produtos
-- [ ] Implementar busca e filtros
-- [ ] Criar integração com estoque
+- [ ] Evoluir o catálogo de produtos
+- [ ] Adicionar busca e filtros de produtos
+- [ ] Integrar estoque e disponibilidade
+- [ ] Criar painel administrativo
+- [ ] Ampliar as calculadoras de materiais
+- [ ] Adicionar testes de interface
+- [ ] Melhorar métricas de desempenho e acessibilidade
 
-## Objetivo profissional
+## Valor profissional
 
-Este projeto faz parte do meu portfólio prático de desenvolvimento web, focado em aplicações voltadas para negócios reais, organização operacional e experiência do usuário.
+Além de desenvolvimento web, este projeto demonstra aplicação de tecnologia em um **negócio real**: transformar necessidades operacionais e comerciais em recursos digitais, versionar a solução, validá-la automaticamente e prepará-la para execução reproduzível com Docker.
 
 ## Autor
 
